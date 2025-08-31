@@ -3,7 +3,7 @@ package com.movtery.zalithlauncher.renderer.renderers
 import com.movtery.zalithlauncher.renderer.RendererInterface
 
 class VulkanZinkRenderer : RendererInterface {
-    override fun getRendererId(): String = "vulkan_zink"
+    override fun getRendererId(): String = "opengles3_desktopgl_zink_kopper"
 
     override fun getUniqueIdentifier(): String = "0fa435e2-46df-45c9-906c-b29606aaef00"
 
