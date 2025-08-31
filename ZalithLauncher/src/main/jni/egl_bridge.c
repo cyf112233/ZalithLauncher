@@ -135,7 +135,16 @@ int pojavInitOpenGL() {
         load_vulkan();
         set_osm_bridge_tbl();
     }
-
+    if (!strcmp(renderer, "opengles3_desktopgl_zink_kopper")) {
+        pojav_environ->config_renderer = RENDERER_VK_ZINK;
+        load_vulkan();
+        setenv("GALLIUM_DRIVER", "zink", 1);
+        setenv("ZINK_USE_KOOPPER", "1", 1);
+        setenv("MESA_VK_WSI_PRESENT_MODE", "immediate", 1);
+        setenv("force_glsl_extensions_warn", "true", 1);
+        set_osm_bridge_tbl();
+        printf("EGLBridge: Using full Kopper-Zink render chain: %s\n", renderer);
+    }
     if (!strcmp(renderer, "vulkan_zink"))
     {
         pojav_environ->config_renderer = RENDERER_VK_ZINK;
