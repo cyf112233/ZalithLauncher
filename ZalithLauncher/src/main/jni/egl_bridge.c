@@ -116,6 +116,7 @@ void load_vulkan() {
 }
 
 int pojavInitOpenGL() {
+    load_vulkan();
     const char *forceVsync = getenv("FORCE_VSYNC");
     if (!strcmp(forceVsync, "true"))
         pojav_environ->force_vsync = true;
