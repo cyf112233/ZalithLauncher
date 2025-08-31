@@ -18,5 +18,5 @@ class VulkanZinkRenderer : RendererInterface {
 
     override fun getDlopenLibrary(): Lazy<List<String>> = lazy { emptyList() }
 
-    override fun getRendererLibrary(): String = "libOSMesa_8.so"
+    override fun getRendererLibrary(): String = "libEGL_mesa.so"
 }
