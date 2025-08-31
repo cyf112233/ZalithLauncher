@@ -7,7 +7,7 @@ class VulkanZinkRenderer : RendererInterface {
 
     override fun getUniqueIdentifier(): String = "0fa435e2-46df-45c9-906c-b29606aaef00"
 
-    override fun getRendererName(): String = "Vulkan Zink"
+    override fun getRendererName(): String = "Kopper Zink"
 
     override fun getRendererEnv(): Lazy<Map<String, String>> = lazy {
         mapOf(
@@ -16,7 +16,15 @@ class VulkanZinkRenderer : RendererInterface {
         )
     }
 
-    override fun getDlopenLibrary(): Lazy<List<String>> = lazy { emptyList() }
-
+    override fun getDlopenLibrary(): Lazy<List<String>> = lazy {
+        listOf(
+            "libcutils.so",
+            "libhardware.so", 
+            "libsync.so",
+            "libglxshim.so",
+            "libgallium_dri.so",
+            "libEGL_mesa.so"
+        )
+    }
     override fun getRendererLibrary(): String = "libEGL_mesa.so"
 }
